@@ -1,0 +1,1 @@
+export type GridItemLayout = "1x2" | "2x1" | "2x2" | "2x4"; // First number is width, second is height

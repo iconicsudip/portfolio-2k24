@@ -1,0 +1,44 @@
+.sidebar{
+    grid-area: sidebar;
+    margin: 1.5rem;
+    .current_status {
+        background: rgba(84, 255, 147, 0.281);
+        border-radius: 50px;
+        display: flex;
+        width: max-content;
+        gap: 8px;
+        padding: 8px 16px;
+        align-items: center;
+        div{
+            font-size: 14px;
+        }
+        .status{
+            width: 15px;
+            height: 15px;
+            background: #00e453;
+            border-radius: 50%;
+            position: relative;
+            z-index: 11;
+            box-shadow: 0px 0px 8px 2px #00e453;
+            animation: blink 1s infinite alternate ease;
+            @keyframes blink {
+                0% {
+                    transform: scale(0.8);
+                }
+                100% {
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+    @media screen and (min-width: 768px) {
+        height: calc(100vh - 3rem);
+    }
+}
+.portfolio{
+    grid-area: portfolio;
+    @media screen and (min-width: 768px) {
+        height: calc(100vh - 3rem);
+        margin-left: 0;
+    }
+}
