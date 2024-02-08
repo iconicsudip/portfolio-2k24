@@ -61,9 +61,9 @@ export default function Portfolio() {
   }
   return (
     <div className={`${styles.portfolio} grid w-full grid-cols-2 xExperiencel:grid-cols-4 xl:gap-8 gap-6 xl:py-10 px-6 pb-6 md:pl-0 md:pt-6 overflow-y-auto `}>
-      {portfolioContent.map((item, i) => {
+      {portfolioContent.map((item:any) => {
         const desc = item.description.replace('$', 'Sudip Das')
-        if(item.size){
+        if(item.size!==null && item.size!==undefined){
           return (
             <GridItem key={item.slug} size={item.size}>
               <div className={styles.grid_item}>

@@ -21,7 +21,6 @@ const variants = cva(
   
 export type GridItemProps = { 
   children: React.ReactNode;
-  size?: string;
 } & VariantProps<typeof variants>;
 export default function GridItem({ children,size}: GridItemProps) {
   return (
