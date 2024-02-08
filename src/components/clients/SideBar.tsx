@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 export default function SideBar() {
   return (
-    <div className={`${styles.sidebar} border-b md:border-b-0 border-[--border-color] md:border-r`}>
+    <div className={`${styles.sidebar} border-b md:border-b-0 border-[--border-color] md:border-r pr-4`}>
       <Image className='
         rounded-full
         object-cover

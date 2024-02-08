@@ -34,3 +34,8 @@ body {
   background-size: 182px;
   opacity: .04;
 }
+.text-border{
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #3f3e3e;
+        white-space: nowrap;
+}

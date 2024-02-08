@@ -1,0 +1,11 @@
+.experience::after{
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: var(--border-color);
+    display: flex;
+    align-items: center;
+    left: 50%;
+    margin-top: 1.25rem;
+}

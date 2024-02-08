@@ -2,7 +2,7 @@ import { cn } from '@/utils/cn';
 import { VariantProps, cva } from 'class-variance-authority';
 import React from 'react'
 const variants = cva(
-    "shadow-grid rounded-2xl bg-white dark:bg-neutral-900 flex flex-col container relative border border-[--border-color]",
+    "shadow-grid rounded-2xl bg-white bg-zinc-900 flex flex-col container relative border border-[--border-color]",
     {
       variants: {
         size: {
@@ -19,16 +19,17 @@ const variants = cva(
     }
   );
   
-  export type GridItemProps = { children: React.ReactNode } & VariantProps<
-    typeof variants
-  >;
+export type GridItemProps = { 
+  children: React.ReactNode;
+  size?: string;
+} & VariantProps<typeof variants>;
 export default function GridItem({ children,size}: GridItemProps) {
   return (
     <div className={cn(
         variants({
           size,
           className:
-            "hover:dark:bg-neutral-800 hover:bg-neutral-50 duration-75 transition-colors ease-in-out",
+            "hover:bg-zinc-800 duration-75 transition-colors ease-in-out",
         })
       )}>
         {children}
