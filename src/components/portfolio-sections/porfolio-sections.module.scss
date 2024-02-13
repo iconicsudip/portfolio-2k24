@@ -1,4 +1,4 @@
-.experience::after{
+.experience::after,.education::after,.service::after{
     content: "";
     position: absolute;
     width: 2px;

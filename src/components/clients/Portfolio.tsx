@@ -7,6 +7,8 @@ import Skills from '../portfolio-sections/Skills'
 import { TbArrowsDiagonal } from "react-icons/tb";
 import Modal from './Modal'
 import Experiences from '../portfolio-sections/Experiences'
+import Educations from '../portfolio-sections/Educations'
+import Services from '../portfolio-sections/Services'
 
 export default function Portfolio() {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
@@ -73,6 +75,12 @@ export default function Portfolio() {
                   }
                   {item.slug === "work-experience" &&
                     <Experiences />
+                  }
+                  {item.slug === "education" &&
+                    <Educations/>
+                  }
+                  {item.slug === "services" &&
+                    <Services />
                   }
                 </div>
                 <div className={styles.grid_item__content}>
