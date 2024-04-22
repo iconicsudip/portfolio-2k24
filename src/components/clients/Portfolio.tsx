@@ -9,6 +9,7 @@ import Modal from './Modal'
 import Experiences from '../portfolio-sections/Experiences'
 import Educations from '../portfolio-sections/Educations'
 import Services from '../portfolio-sections/Services'
+import PersonalProjects from '../portfolio-sections/PersonalProjects'
 
 export default function Portfolio() {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
@@ -62,7 +63,7 @@ export default function Portfolio() {
     }
   }
   return (
-    <div className={`${styles.portfolio} grid w-full grid-cols-2 xExperiencel:grid-cols-4 xl:gap-8 gap-6 xl:py-10 px-6 pb-6 md:pl-0 md:pt-6 overflow-y-auto `}>
+    <div className={`${styles.portfolio} grid w-full grid-cols-2 xExperiencel:grid-cols-4 xl:gap-8 gap-6 px-6 pb-6 md:pl-0 md:m-6 overflow-y-auto `}>
       {portfolioContent.map((item:any) => {
         const desc = item.description.replace('$', 'Sudip Das')
         if(item.size!==null && item.size!==undefined){
@@ -82,6 +83,10 @@ export default function Portfolio() {
                   {item.slug === "services" &&
                     <Services />
                   }
+                  {item.slug === "personal-projects" &&
+                    <PersonalProjects />
+                    // null
+                  }
                 </div>
                 <div className={styles.grid_item__content}>
                   <div className='flex justify-between mb-3 items-start'>
@@ -97,7 +102,7 @@ export default function Portfolio() {
                       <span onMouseEnter={(e) => e.stopPropagation()} className={`${expand === item.slug ? "w-auto opacity-100 ml-2" : "w-0 opacity-0"} text-[--text-color] text-[12px] transition-all whitespace-nowrap overflow-hidden`}>Click to expand</span>
                     </button>
                   </div>
-                  <p className='text-[15px] font-500 text-[--text-color]'>{desc}</p>
+                  <p className='font-sans font-normal text-xs text-neutral-300'>{desc}</p>
                 </div>
               </div>
             </GridItem>

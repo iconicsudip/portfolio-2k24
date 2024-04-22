@@ -6,9 +6,9 @@ export default function Experiences() {
     const experiences = [
         {
             _id: "1",
-            title: "Software Developer",
+            title: "Frontend Developer",
             company: "Mind Webs Ventures",
-            duration: "2022 - Present",
+            duration: "2022 - 2024",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         },
         {

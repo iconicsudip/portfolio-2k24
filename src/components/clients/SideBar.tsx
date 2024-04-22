@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './client.module.scss'
 import Image from 'next/image'
+import ContactForm from '../contact-form/ContactForm'
 
 export default function SideBar() {
   return (
@@ -10,21 +11,24 @@ export default function SideBar() {
         object-cover
         object-center
         mb-2
-      ' src={'https://xsgames.co/randomusers/assets/avatars/male/1.jpg'} width={100} height={100} alt="Clients"/>
+      ' src={'/profile.jpeg'} width={100} height={100} alt="Clients"/>
       <div className="mt-2 mb-6">
         <p className='
           text-md font-600 text-[--primary-color] mb-1
-        '>Developer and Product Designer</p>
+        '>Frontend Developer and Product Designer</p>
         <h1 
           className="text-2xl font-bold mb-3 text-white-800"
-        >Full Name</h1>
-        <p className='text-[15px] font-500 text-[--text-color]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam commodi alias a voluptates voluptatum dolorem nesciunt! Fugiat consequuntur corporis placeat voluptas ipsa eius enim vero, alias reprehenderit quibusdam esse odio.</p>
+        >Sudip Das</h1>
+        <p className='mt-4 font-normal text-sm text-neutral-400 max-w-lg mx-auto'>
+          I am a passionate frontend developer and product designer with over 2+ years of experience. I love to create beautiful and functional websites and applications. I am proficient in HTML, CSS, JavaScript, React, Typescript, Git, Docker, Github Actions, and Figma.
+        </p>
       </div>
-      <div className={`${styles.current_status} mb-5 relative`}>
-        <div className={styles.status}/>
-        <div>Ready for interview</div>
-        <div className='bg-noisy pointer-events-none absolute inset-0 z-10 rounded-[50px]'/>
+      <div className={`${styles.current_status} px-4 py-2 backdrop-blur-sm border bg-emerald-300/10 border-emerald-500/20 text-white text-center rounded-full relative`}>
+        <div className={styles.status} />
+        <div>Open for interview</div>
+        <div className="absolute inset-x-0  h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-emerald-500 to-transparent"></div>
       </div>
+      <ContactForm />
     </div>
   )
 }

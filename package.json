@@ -9,20 +9,27 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-label": "^2.0.2",
+    "axios": "^1.6.8",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "flowbite": "^2.2.1",
     "flowbite-react": "^0.7.2",
+    "framer-motion": "^11.1.7",
     "next": "14.0.4",
+    "nodemailer": "^6.9.13",
     "react": "^18",
     "react-dom": "^18",
     "react-fast-marquee": "^1.6.4",
+    "react-hook-form": "^7.51.3",
     "react-icons": "^5.0.1",
     "sass": "^1.69.7",
-    "tailwind-merge": "^2.2.0"
+    "simplex-noise": "^4.0.1",
+    "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/nodemailer": "^6.4.14",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",

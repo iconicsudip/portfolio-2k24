@@ -2,7 +2,7 @@ import { cn } from '@/utils/cn';
 import { VariantProps, cva } from 'class-variance-authority';
 import React from 'react'
 const variants = cva(
-    "shadow-grid rounded-2xl bg-white bg-zinc-900 flex flex-col container relative border border-[--border-color]",
+    "shadow-grid rounded-2xl bg-white bg-zinc-900 flex flex-col container relative border border-[--border-color] z-0",
     {
       variants: {
         size: {
