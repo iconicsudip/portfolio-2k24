@@ -10,42 +10,50 @@ import Experiences from '../portfolio-sections/Experiences'
 import Educations from '../portfolio-sections/Educations'
 import Services from '../portfolio-sections/Services'
 import PersonalProjects from '../portfolio-sections/PersonalProjects'
+import { PortfolioSection } from '@/enums/portfolio'
+import AllProjects from '../sections/AllProjects'
 
 export default function Portfolio() {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
   const [expand, setExpand] = useState<string | null>(null);
+  const [currentSection, setCurrentSection] = useState<string>("")
   const [currentHeading, setCurrentHeading] = useState<string>("")
   const portfolioContent = [
     {
       slug: "services",
       size: "1x2",
       title: "Services",
-      description: "Hello there! I'm $, and I specialize in delivering a range of services designed to bring your vision to life in the digital realm. With a passion for creativity and a commitment to excellence."
+      description: "Hello there! I'm $, and I specialize in delivering a range of services designed to bring your vision to life in the digital realm. With a passion for creativity and a commitment to excellence.",
+      isMore: false
     },
     {
       slug: "education",
       size: "1x2",
       title: "Education",
-      description: "I have completed a Bachelor of Computer Science and Engineering. This degree has provided me with a strong foundation of knowledge and skills in the field of IT."
+      description: "I have completed a Bachelor of Computer Science and Engineering. This degree has provided me with a strong foundation of knowledge and skills in the field of IT.",
+      isMore: false
     }
     ,
     {
       slug: "skills",
       size: "2x2",
       title: "Skills",
-      description: "In the rapidly evolving landscape of technology, my proficiency extends across a versatile set of technical skills. These capabilities empower me to navigate complex challenges and deliver innovative solutions."
+      description: "In the rapidly evolving landscape of technology, my proficiency extends across a versatile set of technical skills. These capabilities empower me to navigate complex challenges and deliver innovative solutions.",
+      isMore: false
     },
     {
       slug: "work-experience",
       size: "1x2",
       title: "Work Experience",
-      description: "I have had the privilege of working with a diverse range of clients, from small businesses to large corporations. This experience has equipped me with the skills and knowledge necessary to deliver results."
+      description: "I have had the privilege of working with a diverse range of clients, from small businesses to large corporations. This experience has equipped me with the skills and knowledge necessary to deliver results.",
+      isMore: false
     },
     {
       slug: "personal-projects",
       size: "1x2",
       title: "Personal Projects",
-      description: "In addition to my professional experience, I have also undertaken a number of personal projects. These projects have enabled me to expand my skillset and explore new areas of interest."
+      description: "In addition to my professional experience, I have also undertaken a number of personal projects. These projects have enabled me to expand my skillset and explore new areas of interest.",
+      isMore: true
     },
   ]
   const handleToggleExpand = (slug: string | null) => {
@@ -59,6 +67,7 @@ export default function Portfolio() {
     const currentItem = portfolioContent.find((i) => i.slug === item)
     if(currentItem){
       setCurrentHeading(currentItem.title)
+      setCurrentSection(currentItem.slug)
       setModalOpen(!modalOpen)
     }
   }
@@ -71,19 +80,19 @@ export default function Portfolio() {
             <GridItem key={item.slug} size={item.size}>
               <div className={styles.grid_item}>
                 <div className="h-80 border rounded-2xl mb-4 border-[--border-color] bg-zinc-950" >
-                  {item.slug === "skills" &&
+                  {item.slug === PortfolioSection.Skills &&
                     <Skills />
                   }
-                  {item.slug === "work-experience" &&
+                  {item.slug === PortfolioSection.WorkExperience &&
                     <Experiences />
                   }
-                  {item.slug === "education" &&
+                  {item.slug === PortfolioSection.Education &&
                     <Educations/>
                   }
-                  {item.slug === "services" &&
+                  {item.slug === PortfolioSection.Services &&
                     <Services />
                   }
-                  {item.slug === "personal-projects" &&
+                  {item.slug === PortfolioSection.PersonalProjects &&
                     <PersonalProjects />
                     // null
                   }
@@ -91,16 +100,18 @@ export default function Portfolio() {
                 <div className={styles.grid_item__content}>
                   <div className='flex justify-between mb-3 items-start'>
                     <h1 className='text-2xl font-bold  text-white-800'>{item.title}</h1>
-                    <button type="button" onMouseEnter={() => handleToggleExpand(item.slug)} onMouseLeave={() => handleToggleExpand(null)} className='flex items-center justify-center p-2 bg-zinc-700 rounded-lg cursor-pointer hover:bg-zinc-600 hover:fill-white' onClick={() => handleSelectItem(item.slug)}>
-                      <TbArrowsDiagonal className="
-                      text-[--text-color]
-                      transition-all 
-                      duration-300 
-                      ease-in-out
-                      
-                    " data-modal-target="medium-modal" data-modal-toggle="medium-modal" />
-                      <span onMouseEnter={(e) => e.stopPropagation()} className={`${expand === item.slug ? "w-auto opacity-100 ml-2" : "w-0 opacity-0"} text-[--text-color] text-[12px] transition-all whitespace-nowrap overflow-hidden`}>Click to expand</span>
-                    </button>
+                    {item.isMore &&
+                      <button type="button" onMouseEnter={() => handleToggleExpand(item.slug)} onMouseLeave={() => handleToggleExpand(null)} className='flex items-center justify-center p-2 bg-zinc-700 rounded-lg cursor-pointer hover:bg-zinc-600 hover:fill-white' onClick={() => handleSelectItem(item.slug)}>
+                        <TbArrowsDiagonal className="
+                        text-[--text-color]
+                        transition-all 
+                        duration-300 
+                        ease-in-out
+                        
+                      " data-modal-target="medium-modal" data-modal-toggle="medium-modal" />
+                        <span onMouseEnter={(e) => e.stopPropagation()} className={`${expand === item.slug ? "w-auto opacity-100 ml-2" : "w-0 opacity-0"} text-[--text-color] text-[12px] transition-all whitespace-nowrap overflow-hidden`}>Click to expand</span>
+                      </button> 
+                    }
                   </div>
                   <p className='font-sans font-normal text-xs text-neutral-300'>{desc}</p>
                 </div>
@@ -116,7 +127,9 @@ export default function Portfolio() {
           isOpen={modalOpen}
           heading={currentHeading}
         >
-          hleoo
+          {PortfolioSection.PersonalProjects === currentSection &&
+            <AllProjects />
+          }
         </Modal>
       }
     </div>

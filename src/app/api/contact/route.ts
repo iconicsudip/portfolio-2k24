@@ -10,4 +10,4 @@ export const POST = async (req:Request, res:Response) => {
     }catch(e){
         return NextResponse.json(getResponse("Failed to send message",500));
     }
-} 
+}
